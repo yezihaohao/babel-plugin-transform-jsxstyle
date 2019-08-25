@@ -1,0 +1,43 @@
+{
+    "name": "babel-plugin-transform-jsxstyle",
+    "version": "1.0.0",
+    "description": "babel plugin transform jsxstyle htmltag",
+    "main": "lib/index.cjs.js",
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yezihaohao/babel-plugin-transform-jsxstyle.git"
+    },
+    "keywords": [
+        "babel",
+        "babel-plugin",
+        "jsx",
+        "transform",
+        "ast",
+        "less",
+        "style-less"
+    ],
+    "author": "yezihaohao",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/yezihaohao/babel-plugin-transform-jsxstyle/issues"
+    },
+    "homepage": "https://github.com/yezihaohao/babel-plugin-transform-jsxstyle#readme",
+    "files": [
+        "lib/index.cjs.js"
+    ],
+    "dependencies": {
+        "deasync": "^0.1.15",
+        "less": "^3.10.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
+        "rollup": "^1.20.1",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-node-resolve": "^5.2.0"
+    }
+}
