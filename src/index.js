@@ -1,23 +1,21 @@
-const less = require('less');
-const deasync = require('deasync');
-module.exports = function(babel) {
+import less from 'less';
+import deasync from 'deasync';
+
+export default function(babel) {
     // const { types: t } = babel;
     return {
         visitor: {
             JSXElement(path) {
                 let isStyleLess;
                 path.traverse({
-                    JSXClosingElement(path) {
-                        path.traverse({
-                            JSXIdentifier(path) {
-                                if (path.node.name === 'style-less') {
-                                    path.node.name = 'style';
-                                    isStyleLess = true;
-                                } else {
-                                    isStyleLess = false;
-                                }
-                            },
-                        });
+                    JSXIdentifier(path) {
+                        if (path.node.name === 'style-less') {
+                            path.node.name = 'style';
+                            isStyleLess = true;
+                        } else {
+                            isStyleLess = false;
+                        }
+                        path.stop();
                     },
                     TemplateElement(path) {
                         if (isStyleLess) {
@@ -42,6 +40,7 @@ module.exports = function(babel) {
                                     raw: outputCss,
                                     cooked: outputCss,
                                 };
+                                isStyleLess = false;
                             }
                         }
                     },
@@ -49,4 +48,4 @@ module.exports = function(babel) {
             },
         },
     };
-};
+}
