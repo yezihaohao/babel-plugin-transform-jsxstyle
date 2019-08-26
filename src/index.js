@@ -7,13 +7,17 @@ module.exports = function(babel) {
             JSXElement(path) {
                 let isStyleLess;
                 path.traverse({
-                    JSXIdentifier(path) {
-                        if (path.node.name === 'style-less') {
-                            path.node.name = 'style';
-                            isStyleLess = true;
-                        } else {
-                            isStyleLess = false;
-                        }
+                    JSXClosingElement(path) {
+                        path.traverse({
+                            JSXIdentifier(path) {
+                                if (path.node.name === 'style-less') {
+                                    path.node.name = 'style';
+                                    isTemplate = true;
+                                } else {
+                                    isTemplate = false;
+                                }
+                            },
+                        });
                     },
                     TemplateElement(path) {
                         if (isStyleLess) {
