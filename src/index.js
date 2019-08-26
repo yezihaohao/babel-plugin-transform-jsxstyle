@@ -12,9 +12,9 @@ module.exports = function(babel) {
                             JSXIdentifier(path) {
                                 if (path.node.name === 'style-less') {
                                     path.node.name = 'style';
-                                    isTemplate = true;
+                                    isStyleLess = true;
                                 } else {
-                                    isTemplate = false;
+                                    isStyleLess = false;
                                 }
                             },
                         });
