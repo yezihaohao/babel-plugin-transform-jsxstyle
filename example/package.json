@@ -80,7 +80,7 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-transform-jsxstyle": "^1.0.0"
+    "babel-plugin-transform-jsxstyle": "^1.0.3-07e001fe"
   },
   "babel": {
     "presets": [

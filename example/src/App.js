@@ -17,6 +17,14 @@ function App() {
         >
           Learn React(styled by style-less tag)
         </a>
+        <a
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="a_sass"
+        >
+          Learn React(styled by style-sass tag)
+        </a>
         <style-less>{`
             @primary: #f25e5e;
             @primary-hover: #f7a250;
@@ -27,6 +35,17 @@ function App() {
                 }
             }
         `}</style-less>
+
+        <style-sass>{`
+          $primary: #eb2f96;
+          $primary-hover: #722ed1;
+          .a_sass {
+            color: $primary;
+            &:hover {
+              color: $primary-hover;
+            }
+          }
+        `}</style-sass>
       </header>
     </div>
   );

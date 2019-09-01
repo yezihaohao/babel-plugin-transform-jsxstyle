@@ -11,6 +11,7 @@ import deasync from 'deasync';
 
 export default content => {
     let result = '';
+    let done = false;
     less.render(content).then(
         function(output) {
             result = output.css;
