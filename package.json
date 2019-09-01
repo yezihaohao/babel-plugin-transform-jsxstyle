@@ -1,6 +1,6 @@
 {
     "name": "babel-plugin-transform-jsxstyle",
-    "version": "1.0.3-07e001fe",
+    "version": "1.0.4",
     "description": "babel plugin transform jsxstyle htmltag",
     "main": "lib/index.cjs.js",
     "scripts": {
