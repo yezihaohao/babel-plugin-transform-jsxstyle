@@ -31,7 +31,8 @@
     ],
     "dependencies": {
         "deasync": "^0.1.15",
-        "less": "^3.10.3"
+        "less": "^3.10.3",
+        "sass": "^1.22.10"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",

@@ -4,7 +4,7 @@ import babel from 'rollup-plugin-babel';
 function fromSource(format) {
     return {
         input: 'src/index.js',
-        external: ['less', 'deasync'],
+        external: ['less', 'deasync', 'sass'],
         output: {
             file: `lib/index.${format}.js`,
             format: format,

@@ -1,38 +1,30 @@
-import less from 'less';
-import deasync from 'deasync';
+import less from './less';
+import sass from './sass';
 
 export default function(babel) {
     // const { types: t } = babel;
     return {
         visitor: {
             JSXElement(path) {
-                let isStyleLess;
+                let isStyleLess, isStyleSass;
                 path.traverse({
                     JSXIdentifier(path) {
                         if (path.node.name === 'style-less') {
                             path.node.name = 'style';
                             isStyleLess = true;
+                        } else if (path.node.name === 'style-sass') {
+                            path.node.name = 'style';
+                            isStyleSass = true;
                         } else {
                             isStyleLess = false;
                         }
                         path.stop();
                     },
                     TemplateElement(path) {
-                        if (isStyleLess) {
-                            // console.log(path.node.value);
-                            let done = false;
+                        if (isStyleLess || isStyleSass) {
                             let outputCss = '';
-                            less.render(path.node.value.raw).then(
-                                function(output) {
-                                    outputCss = output.css;
-                                    done = true;
-                                },
-                                function(error) {
-                                    outputCss = 'error';
-                                    done = true;
-                                }
-                            );
-                            deasync.loopWhile(() => !done);
+                            isStyleLess && (outputCss = less(path.node.value.raw));
+                            isStyleSass && (outputCss = sass(path.node.value.raw));
                             if (outputCss === 'error') {
                                 throw path.buildCodeFrameError('Transform less error');
                             } else {
