@@ -46,6 +46,18 @@ npm i babel-plugin-transform-jsxstyle --dev
         color: #f7a250;
     }
 `}</style>
+
+// alternatively, you can write sass if u like
+<style-sass>{`
+    $primary: #eb2f96;
+    $primary-hover: #722ed1;
+    a {
+        color: $primary;
+        &:hover {
+            color: $primary-hover;
+        }
+    }
+`}</style-sass>
 ```
 ## Demo
 
